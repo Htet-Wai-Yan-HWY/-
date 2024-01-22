@@ -11,7 +11,10 @@ curl -k https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo ap
 sudo apt-get update || echo ""
 
 sudo apt-get install -y ros-${ROS_DISTRO}-desktop-full
+sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
 sudo apt-get install -y python3-rosdep
+
+
 
 ls /etc/ros/rosdep/sources.list.d/20-default.list > /dev/null 2>&1 && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init 
@@ -19,6 +22,7 @@ rosdep update
 
 sudo apt-get install -y python3-rosinstall python3-rosinstall-generator python3-wstool build-essential python3-vcstool
 sudo apt-get install -y python3-catkin-tools python3-osrf-pycommon
+
 
 grep -F "source /opt/ros/${ROS_DISTRO}/setup.bash" ~/.bashrc ||
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
