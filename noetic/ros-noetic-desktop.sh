@@ -6,12 +6,15 @@ ROS_DISTRO=noetic
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
+
 sudo apt-get install -y curl
 curl -k https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
 sudo apt-get update || echo ""
 
 sudo apt-get install -y ros-${ROS_DISTRO}-desktop-full
-sudo apt-get install ros-$ROS_DISTRO-rtabmap-ros
+sudo apt-get install ros-noetic-imu-tools
 sudo apt-get install -y python3-rosdep
 
 
