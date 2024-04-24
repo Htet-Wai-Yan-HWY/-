@@ -16,6 +16,16 @@ RUN . /opt/ros/iron/setup.sh \
     &&  apt autoremove -y \
     &&  rm -rf /var/lib/apt/lists/*
 
+
+RUN apt-get update \
+ && apt-get install -y \
+    wget \
+    lsb-release \
+    sudo \
+    mesa-utils \
+ && apt-get clean
+
+
 RUN git clone https://github.com/ros-planning/navigation2_tutorials.git src/navigation2_tutorials \
     && . /opt/ros/iron/setup.sh \
     && apt-get update \
